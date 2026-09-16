@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Brasil Tools — engenharia, manutenção, otimização e acabamento técnico de moldes para a indústria do plástico." />
+  <meta name="theme-color" content="#07111f" />
+  <title>Brasil Tools | Soluções em Moldes e Ferramentaria</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-2: #0b1728;
+      --card: rgba(255,255,255,.055);
+      --line: rgba(255,255,255,.11);
+      --text: #f4f7fb;
+      --muted: #aab7c8;
+      --accent: #31a8ff;
+      --accent-2: #7ad7ff;
+      --success: #25d366;
+      --max: 1180px;
+      --radius: 22px;
+      --shadow: 0 22px 60px rgba(0,0,0,.32);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 85% 10%, rgba(49,168,255,.16), transparent 28%),
+        radial-gradient(circle at 10% 18%, rgba(122,215,255,.08), transparent 24%),
+        linear-gradient(180deg, #06101d 0%, #091524 45%, #07111f 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .container { width: min(100% - 40px, var(--max)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--accent-2);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 99px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(5,14,25,.76);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: .04em;
+    }
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(122,215,255,.35);
+      border-radius: 12px;
+      background:
+        linear-gradient(145deg, rgba(49,168,255,.3), rgba(255,255,255,.03)),
+        #0d1c2f;
+      position: relative;
+      box-shadow: inset 0 0 28px rgba(49,168,255,.08);
+    }
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      border-radius: 99px;
+    }
+    .brand-mark::before { width: 22px; height: 6px; left: 9px; top: 17px; }
+    .brand-mark::after { width: 6px; height: 22px; left: 17px; top: 9px; }
+    .brand span:last-child { font-size: 1.02rem; }
+    .brand b { color: var(--accent-2); }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      color: #cfdae8;
+      font-size: .94rem;
+      font-weight: 650;
+    }
+    .nav-links a:hover { color: white; }
+    .nav-cta {
+      padding: 11px 16px;
+      border: 1px solid rgba(122,215,255,.28);
+      border-radius: 12px;
+      background: rgba(49,168,255,.08);
+    }
+
+    .hero {
+      min-height: 740px;
+      display: grid;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 560px;
+      height: 560px;
+      border: 1px solid rgba(122,215,255,.08);
+      border-radius: 50%;
+      right: -180px;
+      top: 60px;
+      box-shadow: 0 0 0 70px rgba(49,168,255,.025), 0 0 0 140px rgba(49,168,255,.018);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 56px;
+      align-items: center;
+      padding: 80px 0 92px;
+    }
+    h1 {
+      font-size: clamp(3rem, 6vw, 5.9rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+      margin: 20px 0 24px;
+      max-width: 850px;
+    }
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #fff 0%, var(--accent-2) 48%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-copy > p {
+      max-width: 700px;
+      color: #bcc8d7;
+      font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+      margin: 0;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 21px;
+      border-radius: 14px;
+      font-weight: 800;
+      transition: .22s ease;
+      border: 1px solid transparent;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: #04111d;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      box-shadow: 0 13px 34px rgba(49,168,255,.24);
+    }
+    .btn-secondary { border-color: rgba(255,255,255,.16); background: rgba(255,255,255,.045); }
+
+    .hero-panel {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(122,215,255,.09), transparent 38%);
+      pointer-events: none;
+    }
+    .tech-visual {
+      aspect-ratio: 1 / .86;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(6,16,29,.25), rgba(6,16,29,.9)),
+        repeating-linear-gradient(90deg, transparent 0 39px, rgba(255,255,255,.035) 40px),
+        repeating-linear-gradient(0deg, transparent 0 39px, rgba(255,255,255,.035) 40px),
+        #0e2035;
+    }
+    .mold-shape {
+      position: absolute;
+      inset: 18% 15%;
+      border-radius: 26px;
+      border: 1px solid rgba(122,215,255,.38);
+      background: linear-gradient(145deg, rgba(40,113,163,.2), rgba(255,255,255,.02));
+      box-shadow: inset 0 0 50px rgba(49,168,255,.1), 0 0 50px rgba(49,168,255,.08);
+      transform: perspective(500px) rotateX(55deg) rotateZ(-28deg);
+    }
+    .mold-shape::before,
+    .mold-shape::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(122,215,255,.4);
+      border-radius: 16px;
+      inset: 18%;
+    }
+    .mold-shape::after { inset: 34%; border-radius: 50%; box-shadow: 0 0 30px rgba(49,168,255,.28); }
+    .visual-label {
+      position: absolute;
+      left: 20px;
+      bottom: 18px;
+      padding: 9px 12px;
+      border: 1px solid rgba(255,255,255,.11);
+      background: rgba(5,14,25,.72);
+      border-radius: 10px;
+      font-size: .82rem;
+      color: #d5e3f2;
+    }
+
+    section { padding: 98px 0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 34px;
+      margin-bottom: 38px;
+    }
+    .section-head h2 {
+      margin: 12px 0 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: -.04em;
+      line-height: 1.05;
+      max-width: 760px;
+    }
+    .section-head p { max-width: 520px; margin: 0; color: var(--muted); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .service {
+      min-height: 220px;
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      transition: .25s ease;
+    }
+    .service:hover { transform: translateY(-4px); border-color: rgba(122,215,255,.3); background: rgba(255,255,255,.07); }
+    .service .num { font-size: .75rem; font-weight: 900; color: var(--accent-2); letter-spacing: .14em; }
+    .service h3 { margin: 26px 0 10px; font-size: 1.25rem; }
+    .service p { color: var(--muted); margin: 0; font-size: .94rem; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+    .about-card,
+    .stats-card {
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      padding: clamp(28px, 5vw, 48px);
+      background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    }
+    .about-card h2 { font-size: clamp(2rem,4vw,3.5rem); line-height: 1.04; letter-spacing: -.045em; margin: 15px 0 20px; }
+    .about-card p { color: var(--muted); font-size: 1.03rem; }
+    .mini-list { display: grid; gap: 13px; margin-top: 28px; }
+    .mini-list div { display: flex; gap: 12px; align-items: start; color: #d5deea; }
+    .check {
+      flex: 0 0 24px;
+      width: 24px; height: 24px;
+      display: grid; place-items: center;
+      border-radius: 50%;
+      color: #06101d;
+      background: var(--accent-2);
+      font-weight: 1000;
+      font-size: .75rem;
+      margin-top: 2px;
+    }
+    .stats-card { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .stat {
+      min-height: 150px;
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(3,11,20,.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+    }
+    .stat strong { font-size: clamp(2.1rem, 4vw, 3.6rem); letter-spacing: -.06em; line-height: 1; }
+    .stat span { color: var(--muted); margin-top: 8px; }
+    .stat.wide { grid-column: span 2; }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    .step { padding: 27px; min-height: 190px; background: rgba(255,255,255,.035); border-right: 1px solid var(--line); }
+    .step:last-child { border-right: 0; }
+    .step b { color: var(--accent-2); font-size: .78rem; letter-spacing: .12em; }
+    .step h3 { margin: 18px 0 10px; }
+    .step p { color: var(--muted); margin: 0; font-size: .92rem; }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      padding: clamp(30px, 5vw, 56px);
+      border-radius: 30px;
+      border: 1px solid rgba(122,215,255,.2);
+      background: linear-gradient(135deg, rgba(49,168,255,.12), rgba(255,255,255,.035));
+      box-shadow: var(--shadow);
+    }
+    .contact-wrap h2 { margin: 13px 0 16px; font-size: clamp(2.2rem,4vw,4rem); line-height: 1; letter-spacing: -.05em; }
+    .contact-wrap p { color: #bdc9d8; max-width: 680px; }
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      background: rgba(5,14,25,.5);
+    }
+    .contact-line { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .contact-line:last-child { border-bottom: 0; }
+    .contact-line small { display: block; color: var(--muted); margin-bottom: 2px; }
+    .contact-line strong { font-size: 1.05rem; }
+
+    footer {
+      padding: 32px 0 42px;
+      color: #91a1b4;
+      font-size: .9rem;
+    }
+    .footer-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 60;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--success);
+      color: white;
+      box-shadow: 0 14px 34px rgba(0,0,0,.35);
+      font-size: 1.45rem;
+      font-weight: 900;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { min-height: auto; }
+      .hero-grid, .about-grid, .contact-wrap { grid-template-columns: 1fr; }
+      .hero-grid { padding: 64px 0 72px; }
+      .hero-panel { max-width: 650px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .process { grid-template-columns: 1fr 1fr; }
+      .step { border-bottom: 1px solid var(--line); }
+      .step:nth-child(2) { border-right: 0; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(100% - 26px, var(--max)); }
+      .nav-inner { min-height: 68px; }
+      .nav-cta { padding: 9px 12px; }
+      .hero-grid { gap: 34px; }
+      h1 { font-size: clamp(2.7rem, 14vw, 4.2rem); }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
+      section { padding: 76px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 18px; }
+      .services-grid, .process { grid-template-columns: 1fr; }
+      .step { border-right: 0; }
+      .stats-card { grid-template-columns: 1fr; }
+      .stat.wide { grid-column: auto; }
+      .brand span:last-child { font-size: .93rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#inicio" class="brand" aria-label="Brasil Tools - início">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>BRASIL<b>TOOLS</b></span>
+      </a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#solucoes">Soluções</a>
+        <a href="#empresa">Empresa</a>
+        <a href="#processo">Como atuamos</a>
+        <a class="nav-cta" href="#contato">Fale conosco</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Engenharia de moldes • Itupeva, SP</span>
+          <h1>Precisão para <em>moldes que não podem parar.</em></h1>
+          <p>Manutenção, otimização, usinagem, texturização, polimento e tecnologias a laser para a indústria do plástico — com foco em qualidade, agilidade e continuidade da produção.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://wa.me/5511981362197?text=Olá%20Brasil%20Tools,%20gostaria%20de%20solicitar%20uma%20avaliação." target="_blank" rel="noopener">Solicitar avaliação →</a>
+            <a class="btn btn-secondary" href="#solucoes">Conhecer soluções</a>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="Visual técnico de molde industrial">
+          <div class="tech-visual">
+            <div class="mold-shape"></div>
+            <div class="visual-label">Engenharia • Ferramentaria • Superfícies</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solucoes">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Soluções</span>
+            <h2>Da manutenção crítica ao acabamento de alta precisão.</h2>
+          </div>
+          <p>Uma operação integrada para reduzir paradas, recuperar performance e elevar o padrão técnico dos moldes.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service"><span class="num">01</span><h3>Projeto e execução de moldes</h3><p>Suporte técnico no desenvolvimento e execução de moldes novos, com foco em fabricabilidade e robustez de processo.</p></article>
+          <article class="service"><span class="num">02</span><h3>Manutenção preventiva</h3><p>Inspeções, limpeza, ajustes e intervenções planejadas para aumentar a disponibilidade e a vida útil do ferramental.</p></article>
+          <article class="service"><span class="num">03</span><h3>Manutenção corretiva</h3><p>Diagnóstico e recuperação de moldes com falhas, desgaste ou danos que impactam diretamente a produção.</p></article>
+          <article class="service"><span class="num">04</span><h3>Usinagem de precisão</h3><p>Ajustes, modificações e fabricação de componentes com controle dimensional e acabamento técnico.</p></article>
+          <article class="service"><span class="num">05</span><h3>Texturização e gravação laser</h3><p>Texturas químicas, gravações técnicas e soluções a laser para superfícies funcionais e estéticas.</p></article>
+          <article class="service"><span class="num">06</span><h3>Polimento e tratamentos</h3><p>Polimento técnico e tratamentos superficiais para melhorar acabamento, desempenho e durabilidade.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="empresa">
+      <div class="container about-grid">
+        <div class="about-card">
+          <span class="eyebrow">Brasil Tools</span>
+          <h2>Conhecimento técnico aplicado ao chão de fábrica.</h2>
+          <p>Atuamos em manutenção, otimização e tratamento de moldes para transformação de plásticos, combinando experiência prática, engenharia e parceiros tecnológicos para atender demandas locais e projetos de maior complexidade.</p>
+          <div class="mini-list">
+            <div><span class="check">✓</span><span>Atendimento técnico orientado a diagnóstico e solução.</span></div>
+            <div><span class="check">✓</span><span>Serviços para manutenção, modificação e melhoria de moldes.</span></div>
+            <div><span class="check">✓</span><span>Foco em prazo, confiabilidade e continuidade de produção.</span></div>
+          </div>
+        </div>
+        <div class="stats-card">
+          <div class="stat"><strong>110</strong><span>clientes satisfeitos</span></div>
+          <div class="stat"><strong>+50</strong><span>projetos concluídos</span></div>
+          <div class="stat wide"><strong>214</strong><span>manutenções realizadas</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="processo">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Como atuamos</span>
+            <h2>Um fluxo simples para problemas complexos.</h2>
+          </div>
+        </div>
+        <div class="process">
+          <div class="step"><b>ETAPA 01</b><h3>Diagnóstico</h3><p>Entendimento do problema, condição do molde, impacto na produção e urgência.</p></div>
+          <div class="step"><b>ETAPA 02</b><h3>Plano técnico</h3><p>Definição do escopo, processo recomendado, prazo e critérios de aceitação.</p></div>
+          <div class="step"><b>ETAPA 03</b><h3>Execução</h3><p>Aplicação dos serviços com controle técnico e rastreabilidade das intervenções.</p></div>
+          <div class="step"><b>ETAPA 04</b><h3>Validação</h3><p>Revisão final do serviço e liberação para retorno seguro à operação.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container contact-wrap">
+        <div>
+          <span class="eyebrow">Contato</span>
+          <h2>Tem um molde parado ou um novo projeto?</h2>
+          <p>Envie sua necessidade para a Brasil Tools. Quanto mais informações sobre o molde, peça e condição atual, mais rápido conseguimos direcionar a avaliação técnica.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://wa.me/5511981362197?text=Olá%20Brasil%20Tools,%20gostaria%20de%20falar%20sobre%20um%20molde/projeto." target="_blank" rel="noopener">Falar pelo WhatsApp →</a>
+            <a class="btn btn-secondary" href="mailto:marcelo@brasiltools.com">Enviar e-mail</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-line"><small>WhatsApp</small><strong>(11) 9 8136-2197</strong></div>
+          <div class="contact-line"><small>E-mail</small><strong>marcelo@brasiltools.com</strong></div>
+          <div class="contact-line"><small>Localização</small><strong>Itupeva • São Paulo • Brasil</strong></div>
+          <div class="contact-line"><small>Site</small><strong>www.brasiltools.com</strong></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Brasil Tools. Todos os direitos reservados.</span>
+      <span>Engenharia • Moldes • Ferramentaria • Superfícies</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5511981362197" target="_blank" rel="noopener" aria-label="Falar com a Brasil Tools pelo WhatsApp">W</a>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
