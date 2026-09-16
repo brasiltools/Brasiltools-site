@@ -3,68 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Brasil Tools — engenharia, manutenção, otimização e acabamento técnico de moldes para a indústria do plástico." />
-  <meta name="theme-color" content="#07111f" />
-  <title>Brasil Tools | Soluções em Moldes e Ferramentaria</title>
+  <meta name="description" content="Brasil Tools — engenharia de moldes, manutenção, usinagem, texturização química, gravação e solda laser, polimento técnico e tratamentos superficiais para a indústria do plástico." />
+  <meta name="theme-color" content="#07111d" />
+  <meta property="og:title" content="Brasil Tools | Engenharia de Moldes e Superfícies" />
+  <meta property="og:description" content="Soluções completas em moldes, texturas, gravação laser, polimento, manutenção e otimização para a indústria do plástico." />
+  <meta property="og:type" content="website" />
+  <title>Brasil Tools | Engenharia de Moldes e Superfícies</title>
+
   <style>
     :root {
-      --bg: #07111f;
-      --bg-2: #0b1728;
+      --bg: #07111d;
+      --bg-2: #0a1726;
+      --bg-3: #0e2032;
       --card: rgba(255,255,255,.055);
-      --line: rgba(255,255,255,.11);
-      --text: #f4f7fb;
-      --muted: #aab7c8;
-      --accent: #31a8ff;
-      --accent-2: #7ad7ff;
-      --success: #25d366;
-      --max: 1180px;
-      --radius: 22px;
-      --shadow: 0 22px 60px rgba(0,0,0,.32);
+      --card-strong: rgba(255,255,255,.085);
+      --line: rgba(255,255,255,.115);
+      --line-blue: rgba(69,187,255,.32);
+      --text: #f4f8fc;
+      --muted: #9eafc1;
+      --blue: #2da9f7;
+      --cyan: #77dcff;
+      --steel: #bfd4e7;
+      --green: #25d366;
+      --max: 1220px;
+      --r-sm: 14px;
+      --r-md: 22px;
+      --r-lg: 32px;
+      --shadow: 0 30px 90px rgba(0,0,0,.34);
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at 85% 10%, rgba(49,168,255,.16), transparent 28%),
-        radial-gradient(circle at 10% 18%, rgba(122,215,255,.08), transparent 24%),
-        linear-gradient(180deg, #06101d 0%, #091524 45%, #07111f 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
+      background:
+        radial-gradient(circle at 78% 6%, rgba(45,169,247,.17), transparent 27%),
+        radial-gradient(circle at 12% 30%, rgba(119,220,255,.06), transparent 22%),
+        linear-gradient(180deg, #06101b 0%, #081522 50%, #07111d 100%);
+      overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
     button, a { -webkit-tap-highlight-color: transparent; }
-
     .container { width: min(100% - 40px, var(--max)); margin-inline: auto; }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--accent-2);
+
+    .topbar {
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      background: #050d16;
+      color: #9eb0c3;
       font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .16em;
-      text-transform: uppercase;
     }
-    .eyebrow::before {
-      content: "";
-      width: 28px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-      border-radius: 99px;
+    .topbar-inner {
+      min-height: 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
     }
+    .topbar b { color: #d8e7f4; font-weight: 700; }
 
     .nav {
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(18px);
-      background: rgba(5,14,25,.76);
+      background: rgba(5,14,24,.82);
       border-bottom: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(18px);
     }
     .nav-inner {
       min-height: 76px;
@@ -74,357 +81,570 @@
       gap: 28px;
     }
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 12px;
       font-weight: 900;
-      letter-spacing: .04em;
+      letter-spacing: .045em;
     }
-    .brand-mark {
-      width: 40px;
-      height: 40px;
-      border: 1px solid rgba(122,215,255,.35);
-      border-radius: 12px;
-      background:
-        linear-gradient(145deg, rgba(49,168,255,.3), rgba(255,255,255,.03)),
-        #0d1c2f;
+    .brand-symbol {
       position: relative;
-      box-shadow: inset 0 0 28px rgba(49,168,255,.08);
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      border: 1px solid rgba(119,220,255,.35);
+      background: linear-gradient(145deg, rgba(45,169,247,.26), rgba(255,255,255,.035));
+      box-shadow: inset 0 0 25px rgba(45,169,247,.08);
     }
-    .brand-mark::before,
-    .brand-mark::after {
+    .brand-symbol::before,
+    .brand-symbol::after {
       content: "";
       position: absolute;
-      background: linear-gradient(135deg, var(--accent-2), var(--accent));
       border-radius: 99px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
     }
-    .brand-mark::before { width: 22px; height: 6px; left: 9px; top: 17px; }
-    .brand-mark::after { width: 6px; height: 22px; left: 17px; top: 9px; }
-    .brand span:last-child { font-size: 1.02rem; }
-    .brand b { color: var(--accent-2); }
+    .brand-symbol::before { width: 24px; height: 6px; left: 8px; top: 17px; }
+    .brand-symbol::after { width: 6px; height: 24px; left: 17px; top: 8px; }
+    .brand-name { font-size: 1.04rem; }
+    .brand-name b { color: var(--cyan); }
 
     .nav-links {
       display: flex;
-      gap: 26px;
       align-items: center;
-      color: #cfdae8;
-      font-size: .94rem;
-      font-weight: 650;
+      gap: 25px;
+      font-size: .92rem;
+      font-weight: 700;
+      color: #c8d5e2;
     }
+    .nav-links a { transition: .2s ease; }
     .nav-links a:hover { color: white; }
     .nav-cta {
       padding: 11px 16px;
-      border: 1px solid rgba(122,215,255,.28);
+      border: 1px solid rgba(119,220,255,.3);
       border-radius: 12px;
-      background: rgba(49,168,255,.08);
+      background: rgba(45,169,247,.09);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--cyan);
+      font-size: .76rem;
+      font-weight: 850;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--blue), transparent);
     }
 
     .hero {
-      min-height: 740px;
+      position: relative;
+      min-height: 770px;
       display: grid;
       align-items: center;
-      position: relative;
       overflow: hidden;
     }
-    .hero::after {
+    .hero::before {
       content: "";
       position: absolute;
-      width: 560px;
-      height: 560px;
-      border: 1px solid rgba(122,215,255,.08);
-      border-radius: 50%;
-      right: -180px;
-      top: 60px;
-      box-shadow: 0 0 0 70px rgba(49,168,255,.025), 0 0 0 140px rgba(49,168,255,.018);
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
       pointer-events: none;
     }
     .hero-grid {
+      position: relative;
+      z-index: 2;
       display: grid;
-      grid-template-columns: 1.12fr .88fr;
-      gap: 56px;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 58px;
       align-items: center;
-      padding: 80px 0 92px;
+      padding: 88px 0 104px;
     }
     h1 {
-      font-size: clamp(3rem, 6vw, 5.9rem);
-      line-height: .98;
-      letter-spacing: -.055em;
+      max-width: 820px;
       margin: 20px 0 24px;
-      max-width: 850px;
+      font-size: clamp(3.2rem, 6.1vw, 6.1rem);
+      line-height: .94;
+      letter-spacing: -.06em;
     }
-    h1 em {
-      font-style: normal;
-      background: linear-gradient(90deg, #fff 0%, var(--accent-2) 48%, var(--accent) 100%);
+    h1 span {
+      background: linear-gradient(95deg, #ffffff 4%, var(--cyan) 53%, var(--blue) 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
     .hero-copy > p {
-      max-width: 700px;
-      color: #bcc8d7;
-      font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+      max-width: 720px;
       margin: 0;
+      color: #b7c5d4;
+      font-size: clamp(1.05rem, 1.55vw, 1.24rem);
     }
-    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      margin-top: 24px;
+      color: #d3deea;
+      font-size: .88rem;
+      font-weight: 650;
+    }
+    .hero-points span::before { content: "•"; color: var(--cyan); margin-right: 8px; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 34px; }
     .btn {
+      min-height: 52px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      min-height: 52px;
+      gap: 9px;
       padding: 0 21px;
       border-radius: 14px;
-      font-weight: 800;
-      transition: .22s ease;
       border: 1px solid transparent;
+      font-weight: 850;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
     }
     .btn:hover { transform: translateY(-2px); }
     .btn-primary {
-      color: #04111d;
-      background: linear-gradient(135deg, var(--accent-2), var(--accent));
-      box-shadow: 0 13px 34px rgba(49,168,255,.24);
+      color: #04121d;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      box-shadow: 0 14px 40px rgba(45,169,247,.23);
     }
     .btn-secondary { border-color: rgba(255,255,255,.16); background: rgba(255,255,255,.045); }
 
-    .hero-panel {
-      padding: 26px;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
-      box-shadow: var(--shadow);
+    .hero-stage {
       position: relative;
-    }
-    .hero-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: linear-gradient(135deg, rgba(122,215,255,.09), transparent 38%);
-      pointer-events: none;
-    }
-    .tech-visual {
-      aspect-ratio: 1 / .86;
-      border-radius: 20px;
-      position: relative;
-      overflow: hidden;
+      min-height: 510px;
+      border: 1px solid rgba(119,220,255,.18);
+      border-radius: 30px;
       background:
-        linear-gradient(180deg, rgba(6,16,29,.25), rgba(6,16,29,.9)),
-        repeating-linear-gradient(90deg, transparent 0 39px, rgba(255,255,255,.035) 40px),
-        repeating-linear-gradient(0deg, transparent 0 39px, rgba(255,255,255,.035) 40px),
-        #0e2035;
+        linear-gradient(150deg, rgba(255,255,255,.07), rgba(255,255,255,.018)),
+        #0b1929;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
-    .mold-shape {
-      position: absolute;
-      inset: 18% 15%;
-      border-radius: 26px;
-      border: 1px solid rgba(122,215,255,.38);
-      background: linear-gradient(145deg, rgba(40,113,163,.2), rgba(255,255,255,.02));
-      box-shadow: inset 0 0 50px rgba(49,168,255,.1), 0 0 50px rgba(49,168,255,.08);
-      transform: perspective(500px) rotateX(55deg) rotateZ(-28deg);
-    }
-    .mold-shape::before,
-    .mold-shape::after {
+    .hero-stage::before {
       content: "";
       position: absolute;
-      border: 1px solid rgba(122,215,255,.4);
-      border-radius: 16px;
-      inset: 18%;
+      width: 510px;
+      height: 510px;
+      border: 1px solid rgba(119,220,255,.14);
+      border-radius: 50%;
+      top: -175px;
+      right: -175px;
+      box-shadow: 0 0 0 62px rgba(45,169,247,.025), 0 0 0 124px rgba(45,169,247,.018);
     }
-    .mold-shape::after { inset: 34%; border-radius: 50%; box-shadow: 0 0 30px rgba(49,168,255,.28); }
-    .visual-label {
+    .technical-frame {
       position: absolute;
-      left: 20px;
-      bottom: 18px;
-      padding: 9px 12px;
-      border: 1px solid rgba(255,255,255,.11);
-      background: rgba(5,14,25,.72);
-      border-radius: 10px;
-      font-size: .82rem;
-      color: #d5e3f2;
+      inset: 55px 48px 95px;
+      border: 1px solid rgba(119,220,255,.28);
+      border-radius: 26px;
+      transform: perspective(700px) rotateX(58deg) rotateZ(-27deg);
+      background: linear-gradient(145deg, rgba(45,169,247,.2), rgba(255,255,255,.02));
+      box-shadow: inset 0 0 55px rgba(45,169,247,.08), 0 0 70px rgba(45,169,247,.08);
     }
+    .technical-frame::before,
+    .technical-frame::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(119,220,255,.36);
+      border-radius: 18px;
+    }
+    .technical-frame::before { inset: 16%; }
+    .technical-frame::after { inset: 34%; border-radius: 50%; box-shadow: 0 0 34px rgba(45,169,247,.27); }
+    .stage-label {
+      position: absolute;
+      left: 24px;
+      top: 22px;
+      color: var(--cyan);
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    .stage-bottom {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 20px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 8px;
+    }
+    .stage-chip {
+      padding: 13px 11px;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 12px;
+      background: rgba(5,13,23,.62);
+    }
+    .stage-chip small { display: block; color: #7f94a9; font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; }
+    .stage-chip strong { display: block; margin-top: 2px; font-size: .84rem; }
 
-    section { padding: 98px 0; }
+    .trust-strip {
+      position: relative;
+      z-index: 5;
+      margin-top: -38px;
+    }
+    .trust-inner {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(8,20,33,.93);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 45px rgba(0,0,0,.23);
+    }
+    .trust-item { padding: 21px 22px; border-right: 1px solid var(--line); }
+    .trust-item:last-child { border-right: 0; }
+    .trust-item strong { display: block; font-size: 1.34rem; letter-spacing: -.03em; }
+    .trust-item span { color: var(--muted); font-size: .82rem; }
+
+    section { padding: 104px 0; }
     .section-head {
       display: flex;
-      justify-content: space-between;
       align-items: end;
+      justify-content: space-between;
       gap: 34px;
-      margin-bottom: 38px;
+      margin-bottom: 42px;
     }
     .section-head h2 {
+      max-width: 770px;
       margin: 12px 0 0;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      letter-spacing: -.04em;
-      line-height: 1.05;
-      max-width: 760px;
+      font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+      line-height: 1.03;
+      letter-spacing: -.045em;
     }
     .section-head p { max-width: 520px; margin: 0; color: var(--muted); }
 
-    .services-grid {
+    .service-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 16px;
     }
-    .service {
-      min-height: 220px;
-      padding: 25px;
+    .service-card {
+      position: relative;
+      min-height: 255px;
+      padding: 28px;
       border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--card);
-      transition: .25s ease;
+      border-radius: var(--r-md);
+      background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.022));
+      overflow: hidden;
+      transition: .24s ease;
     }
-    .service:hover { transform: translateY(-4px); border-color: rgba(122,215,255,.3); background: rgba(255,255,255,.07); }
-    .service .num { font-size: .75rem; font-weight: 900; color: var(--accent-2); letter-spacing: .14em; }
-    .service h3 { margin: 26px 0 10px; font-size: 1.25rem; }
-    .service p { color: var(--muted); margin: 0; font-size: .94rem; }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 34px;
-      align-items: stretch;
-    }
-    .about-card,
-    .stats-card {
-      border-radius: 28px;
-      border: 1px solid var(--line);
-      padding: clamp(28px, 5vw, 48px);
-      background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-    }
-    .about-card h2 { font-size: clamp(2rem,4vw,3.5rem); line-height: 1.04; letter-spacing: -.045em; margin: 15px 0 20px; }
-    .about-card p { color: var(--muted); font-size: 1.03rem; }
-    .mini-list { display: grid; gap: 13px; margin-top: 28px; }
-    .mini-list div { display: flex; gap: 12px; align-items: start; color: #d5deea; }
-    .check {
-      flex: 0 0 24px;
-      width: 24px; height: 24px;
-      display: grid; place-items: center;
+    .service-card::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      color: #06101d;
-      background: var(--accent-2);
+      right: -70px;
+      bottom: -75px;
+      background: radial-gradient(circle, rgba(45,169,247,.11), transparent 68%);
+    }
+    .service-card:hover { transform: translateY(-4px); border-color: var(--line-blue); background: rgba(255,255,255,.07); }
+    .service-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(119,220,255,.24);
+      border-radius: 12px;
+      background: rgba(45,169,247,.08);
+      color: var(--cyan);
+      font-weight: 900;
+      font-size: .78rem;
+      letter-spacing: .04em;
+    }
+    .service-card h3 { margin: 25px 0 10px; font-size: 1.25rem; line-height: 1.2; }
+    .service-card p { margin: 0; color: var(--muted); font-size: .93rem; }
+    .service-card .tag { display: inline-block; margin-top: 18px; color: #bed1e2; font-size: .76rem; font-weight: 700; }
+
+    .surface-section {
+      position: relative;
+      border-block: 1px solid rgba(255,255,255,.07);
+      background: linear-gradient(180deg, rgba(255,255,255,.018), rgba(255,255,255,.004));
+    }
+    .surface-layout {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 42px;
+      align-items: center;
+    }
+    .surface-copy h2 {
+      margin: 14px 0 19px;
+      font-size: clamp(2.4rem,4.6vw,4.4rem);
+      line-height: .99;
+      letter-spacing: -.05em;
+    }
+    .surface-copy p { color: var(--muted); }
+    .surface-list { display: grid; gap: 12px; margin: 28px 0 0; }
+    .surface-list div {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: #d7e1eb;
+    }
+    .check {
+      flex: 0 0 23px;
+      width: 23px;
+      height: 23px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--cyan);
+      color: #07111d;
+      font-size: .72rem;
       font-weight: 1000;
-      font-size: .75rem;
       margin-top: 2px;
     }
-    .stats-card { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .stat {
-      min-height: 150px;
-      padding: 20px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(3,11,20,.4);
+
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .pattern-card {
+      min-height: 230px;
+      position: relative;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: #111f2c;
+    }
+    .pattern-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(4,11,18,.9), transparent 58%);
+    }
+    .pattern-card .caption { position: absolute; z-index: 2; left: 18px; right: 18px; bottom: 15px; }
+    .pattern-card .caption small { color: #9bb1c4; font-size: .72rem; }
+    .pattern-card .caption strong { display: block; margin-top: 2px; font-size: 1.08rem; }
+    .p-leather {
+      background-color: #183044;
+      background-image:
+        radial-gradient(ellipse at 20% 25%, transparent 0 18px, rgba(122,220,255,.18) 19px 20px, transparent 21px),
+        radial-gradient(ellipse at 72% 64%, transparent 0 23px, rgba(255,255,255,.09) 24px 25px, transparent 26px),
+        radial-gradient(ellipse at 48% 44%, transparent 0 12px, rgba(45,169,247,.18) 13px 14px, transparent 15px);
+      background-size: 82px 62px, 97px 77px, 61px 51px;
+    }
+    .p-geo {
+      background-color: #14283b;
+      background-image: repeating-linear-gradient(45deg, rgba(119,220,255,.15) 0 1px, transparent 1px 18px), repeating-linear-gradient(-45deg, rgba(255,255,255,.08) 0 1px, transparent 1px 18px);
+    }
+    .p-satin {
+      background: repeating-linear-gradient(105deg, #0e1e2d 0 5px, #1a3448 5px 7px, #122638 7px 12px);
+    }
+    .p-organic {
+      background-color: #13283a;
+      background-image: repeating-radial-gradient(ellipse at 15% 30%, rgba(119,220,255,.17) 0 1px, transparent 2px 12px), repeating-radial-gradient(ellipse at 80% 70%, rgba(255,255,255,.08) 0 1px, transparent 2px 17px);
+    }
+
+    .advantages {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 14px;
+    }
+    .adv-card {
+      min-height: 195px;
+      padding: 24px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.034);
+    }
+    .adv-card .num { color: var(--cyan); font-size: .72rem; font-weight: 900; letter-spacing: .15em; }
+    .adv-card h3 { margin: 22px 0 9px; font-size: 1.09rem; }
+    .adv-card p { margin: 0; color: var(--muted); font-size: .87rem; }
+
+    .industry-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .industry-copy,
+    .industry-grid {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+    }
+    .industry-copy { padding: clamp(30px,5vw,50px); }
+    .industry-copy h2 { margin: 14px 0 18px; font-size: clamp(2.25rem,4vw,3.7rem); line-height: 1.02; letter-spacing: -.045em; }
+    .industry-copy p { color: var(--muted); }
+    .industry-grid { padding: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .industry {
+      min-height: 118px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
       justify-content: end;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px;
+      background: rgba(4,12,21,.38);
     }
-    .stat strong { font-size: clamp(2.1rem, 4vw, 3.6rem); letter-spacing: -.06em; line-height: 1; }
-    .stat span { color: var(--muted); margin-top: 8px; }
-    .stat.wide { grid-column: span 2; }
+    .industry small { color: var(--cyan); font-size: .68rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+    .industry strong { margin-top: 6px; font-size: 1rem; }
 
     .process {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
+      grid-template-columns: repeat(4,1fr);
       border: 1px solid var(--line);
       border-radius: 24px;
       overflow: hidden;
+      background: rgba(255,255,255,.025);
     }
-    .step { padding: 27px; min-height: 190px; background: rgba(255,255,255,.035); border-right: 1px solid var(--line); }
-    .step:last-child { border-right: 0; }
-    .step b { color: var(--accent-2); font-size: .78rem; letter-spacing: .12em; }
-    .step h3 { margin: 18px 0 10px; }
-    .step p { color: var(--muted); margin: 0; font-size: .92rem; }
+    .process-step { min-height: 205px; padding: 27px; border-right: 1px solid var(--line); }
+    .process-step:last-child { border-right: 0; }
+    .process-step b { color: var(--cyan); font-size: .72rem; letter-spacing: .14em; }
+    .process-step h3 { margin: 21px 0 9px; font-size: 1.18rem; }
+    .process-step p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+    .numbers {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 14px;
+      margin-top: 42px;
+    }
+    .number-card {
+      padding: 24px;
+      min-height: 142px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,255,255,.035);
+    }
+    .number-card strong { display: block; font-size: clamp(2rem,4vw,3.4rem); line-height: 1; letter-spacing: -.06em; }
+    .number-card span { display: block; margin-top: 9px; color: var(--muted); font-size: .86rem; }
 
     .contact-wrap {
       display: grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: 1.14fr .86fr;
       gap: 18px;
-      padding: clamp(30px, 5vw, 56px);
+      padding: clamp(30px,5vw,58px);
+      border: 1px solid rgba(119,220,255,.2);
       border-radius: 30px;
-      border: 1px solid rgba(122,215,255,.2);
-      background: linear-gradient(135deg, rgba(49,168,255,.12), rgba(255,255,255,.035));
+      background: linear-gradient(135deg, rgba(45,169,247,.13), rgba(255,255,255,.03));
       box-shadow: var(--shadow);
     }
-    .contact-wrap h2 { margin: 13px 0 16px; font-size: clamp(2.2rem,4vw,4rem); line-height: 1; letter-spacing: -.05em; }
-    .contact-wrap p { color: #bdc9d8; max-width: 680px; }
+    .contact-wrap h2 { margin: 13px 0 16px; font-size: clamp(2.35rem,4.3vw,4.25rem); line-height: .99; letter-spacing: -.052em; }
+    .contact-wrap p { max-width: 680px; color: #bcc9d7; }
     .contact-card {
+      padding: 24px;
       border: 1px solid var(--line);
       border-radius: 20px;
-      padding: 24px;
-      background: rgba(5,14,25,.5);
+      background: rgba(5,13,23,.56);
     }
-    .contact-line { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .contact-line { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
     .contact-line:last-child { border-bottom: 0; }
-    .contact-line small { display: block; color: var(--muted); margin-bottom: 2px; }
-    .contact-line strong { font-size: 1.05rem; }
+    .contact-line small { display: block; margin-bottom: 2px; color: var(--muted); }
+    .contact-line strong { font-size: 1.03rem; }
 
-    footer {
-      padding: 32px 0 42px;
-      color: #91a1b4;
-      font-size: .9rem;
-    }
+    footer { padding: 34px 0 45px; color: #8ea1b5; font-size: .88rem; }
     .footer-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 
     .whatsapp-float {
       position: fixed;
       right: 20px;
       bottom: 20px;
-      z-index: 60;
+      z-index: 70;
       width: 58px;
       height: 58px;
-      border-radius: 50%;
       display: grid;
       place-items: center;
-      background: var(--success);
+      border-radius: 50%;
+      background: var(--green);
       color: white;
-      box-shadow: 0 14px 34px rgba(0,0,0,.35);
-      font-size: 1.45rem;
-      font-weight: 900;
+      font-weight: 950;
+      box-shadow: 0 15px 38px rgba(0,0,0,.35);
     }
 
-    @media (max-width: 900px) {
-      .nav-links a:not(.nav-cta) { display: none; }
-      .hero { min-height: auto; }
-      .hero-grid, .about-grid, .contact-wrap { grid-template-columns: 1fr; }
-      .hero-grid { padding: 64px 0 72px; }
-      .hero-panel { max-width: 650px; }
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .process { grid-template-columns: 1fr 1fr; }
-      .step { border-bottom: 1px solid var(--line); }
-      .step:nth-child(2) { border-right: 0; }
+    @media (max-width: 980px) {
+      .hero-grid, .surface-layout, .industry-wrap, .contact-wrap { grid-template-columns: 1fr; }
+      .hero-stage { max-width: 680px; }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+      .advantages, .process, .numbers { grid-template-columns: 1fr 1fr; }
+      .process-step:nth-child(2) { border-right: 0; }
+      .process-step { border-bottom: 1px solid var(--line); }
+      .trust-inner { grid-template-columns: 1fr 1fr; }
+      .trust-item:nth-child(2) { border-right: 0; }
+      .trust-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
     }
 
-    @media (max-width: 620px) {
+    @media (max-width: 720px) {
       .container { width: min(100% - 26px, var(--max)); }
+      .topbar-inner span:last-child { display: none; }
       .nav-inner { min-height: 68px; }
-      .nav-cta { padding: 9px 12px; }
-      .hero-grid { gap: 34px; }
-      h1 { font-size: clamp(2.7rem, 14vw, 4.2rem); }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .brand-name { font-size: .94rem; }
+      .hero { min-height: auto; }
+      .hero-grid { padding: 64px 0 82px; gap: 35px; }
+      h1 { font-size: clamp(2.8rem, 14vw, 4.4rem); }
       .actions { flex-direction: column; }
       .btn { width: 100%; }
-      section { padding: 76px 0; }
+      .hero-stage { min-height: 430px; }
+      .technical-frame { inset: 55px 32px 106px; }
+      .stage-bottom { grid-template-columns: 1fr; }
+      .stage-chip { padding: 9px 11px; }
+      .trust-strip { margin-top: -26px; }
+      .trust-inner, .service-grid, .advantages, .process, .numbers, .industry-grid { grid-template-columns: 1fr; }
+      .trust-item { border-right: 0; border-bottom: 1px solid var(--line); }
+      .trust-item:last-child { border-bottom: 0; }
       .section-head { display: block; }
       .section-head p { margin-top: 18px; }
-      .services-grid, .process { grid-template-columns: 1fr; }
-      .step { border-right: 0; }
-      .stats-card { grid-template-columns: 1fr; }
-      .stat.wide { grid-column: auto; }
-      .brand span:last-child { font-size: .93rem; }
+      section { padding: 78px 0; }
+      .pattern-grid { gap: 10px; }
+      .pattern-card { min-height: 175px; }
+      .process-step { border-right: 0; }
+      .process-step:last-child { border-bottom: 0; }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Brasil Tools",
+    "url": "https://www.brasiltools.com",
+    "email": "marcelo@brasiltools.com",
+    "telephone": "+55-11-98136-2197",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Itupeva",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    }
+  }
+  </script>
 </head>
 <body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span><b>Brasil Tools</b> · Engenharia para a indústria do plástico</span>
+      <span>Itupeva · São Paulo · Atendimento nacional</span>
+    </div>
+  </div>
+
   <header class="nav">
     <div class="container nav-inner">
-      <a href="#inicio" class="brand" aria-label="Brasil Tools - início">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>BRASIL<b>TOOLS</b></span>
+      <a class="brand" href="#inicio" aria-label="Brasil Tools - início">
+        <span class="brand-symbol" aria-hidden="true"></span>
+        <span class="brand-name">BRASIL<b>TOOLS</b></span>
       </a>
       <nav class="nav-links" aria-label="Navegação principal">
         <a href="#solucoes">Soluções</a>
-        <a href="#empresa">Empresa</a>
-        <a href="#processo">Como atuamos</a>
-        <a class="nav-cta" href="#contato">Fale conosco</a>
+        <a href="#superficies">Superfícies</a>
+        <a href="#segmentos">Segmentos</a>
+        <a href="#processo">Processo</a>
+        <a class="nav-cta" href="#contato">Solicitar orçamento</a>
       </nav>
     </div>
   </header>
@@ -433,60 +653,121 @@
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Engenharia de moldes • Itupeva, SP</span>
-          <h1>Precisão para <em>moldes que não podem parar.</em></h1>
-          <p>Manutenção, otimização, usinagem, texturização, polimento e tecnologias a laser para a indústria do plástico — com foco em qualidade, agilidade e continuidade da produção.</p>
+          <span class="eyebrow">Moldes · Ferramentaria · Engenharia de superfícies</span>
+          <h1>Moldes prontos para produzir. <span>Superfícies prontas para impressionar.</span></h1>
+          <p>Uma operação técnica para manutenção, otimização, usinagem e acabamento de moldes — da recuperação do ferramental à texturização química, gravação laser, polimento e tratamentos superficiais.</p>
+          <div class="hero-points">
+            <span>Manutenção de moldes</span>
+            <span>Texturização</span>
+            <span>Laser</span>
+            <span>Polimento técnico</span>
+          </div>
           <div class="actions">
-            <a class="btn btn-primary" href="https://wa.me/5511981362197?text=Olá%20Brasil%20Tools,%20gostaria%20de%20solicitar%20uma%20avaliação." target="_blank" rel="noopener">Solicitar avaliação →</a>
-            <a class="btn btn-secondary" href="#solucoes">Conhecer soluções</a>
+            <a class="btn btn-primary" href="https://wa.me/5511981362197?text=Olá%20Brasil%20Tools.%20Gostaria%20de%20enviar%20fotos%20e%20informações%20de%20um%20molde%20para%20avaliação." target="_blank" rel="noopener">Enviar projeto pelo WhatsApp →</a>
+            <a class="btn btn-secondary" href="#solucoes">Explorar soluções</a>
           </div>
         </div>
-        <div class="hero-panel" aria-label="Visual técnico de molde industrial">
-          <div class="tech-visual">
-            <div class="mold-shape"></div>
-            <div class="visual-label">Engenharia • Ferramentaria • Superfícies</div>
+
+        <div class="hero-stage" aria-label="Representação técnica de molde industrial">
+          <span class="stage-label">Integrated Mold Solutions</span>
+          <div class="technical-frame"></div>
+          <div class="stage-bottom">
+            <div class="stage-chip"><small>01</small><strong>Analisar</strong></div>
+            <div class="stage-chip"><small>02</small><strong>Executar</strong></div>
+            <div class="stage-chip"><small>03</small><strong>Validar</strong></div>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="trust-strip">
+      <div class="container trust-inner">
+        <div class="trust-item"><strong>Desde 2015</strong><span>experiência aplicada em moldes</span></div>
+        <div class="trust-item"><strong>110</strong><span>clientes satisfeitos</span></div>
+        <div class="trust-item"><strong>+50</strong><span>projetos concluídos</span></div>
+        <div class="trust-item"><strong>214</strong><span>manutenções realizadas</span></div>
+      </div>
+    </div>
 
     <section id="solucoes">
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Soluções</span>
-            <h2>Da manutenção crítica ao acabamento de alta precisão.</h2>
+            <span class="eyebrow">Soluções integradas</span>
+            <h2>Menos fornecedores. Mais controle sobre o seu ferramental.</h2>
           </div>
-          <p>Uma operação integrada para reduzir paradas, recuperar performance e elevar o padrão técnico dos moldes.</p>
+          <p>Centralizamos serviços críticos do molde para reduzir interfaces, facilitar decisões técnicas e acelerar o retorno à produção.</p>
         </div>
 
-        <div class="services-grid">
-          <article class="service"><span class="num">01</span><h3>Projeto e execução de moldes</h3><p>Suporte técnico no desenvolvimento e execução de moldes novos, com foco em fabricabilidade e robustez de processo.</p></article>
-          <article class="service"><span class="num">02</span><h3>Manutenção preventiva</h3><p>Inspeções, limpeza, ajustes e intervenções planejadas para aumentar a disponibilidade e a vida útil do ferramental.</p></article>
-          <article class="service"><span class="num">03</span><h3>Manutenção corretiva</h3><p>Diagnóstico e recuperação de moldes com falhas, desgaste ou danos que impactam diretamente a produção.</p></article>
-          <article class="service"><span class="num">04</span><h3>Usinagem de precisão</h3><p>Ajustes, modificações e fabricação de componentes com controle dimensional e acabamento técnico.</p></article>
-          <article class="service"><span class="num">05</span><h3>Texturização e gravação laser</h3><p>Texturas químicas, gravações técnicas e soluções a laser para superfícies funcionais e estéticas.</p></article>
-          <article class="service"><span class="num">06</span><h3>Polimento e tratamentos</h3><p>Polimento técnico e tratamentos superficiais para melhorar acabamento, desempenho e durabilidade.</p></article>
+        <div class="service-grid">
+          <article class="service-card"><span class="service-icon">M01</span><h3>Projeto e execução de moldes</h3><p>Acompanhamento técnico de moldes novos, melhorias construtivas e suporte ao desenvolvimento para produção seriada.</p><span class="tag">Engenharia · Ferramentaria</span></article>
+          <article class="service-card"><span class="service-icon">M02</span><h3>Manutenção preventiva e corretiva</h3><p>Inspeção, limpeza, ajustes, recuperação e correções para restaurar desempenho e reduzir paradas não planejadas.</p><span class="tag">Disponibilidade · Vida útil</span></article>
+          <article class="service-card"><span class="service-icon">M03</span><h3>Usinagem de precisão</h3><p>Modificações, ajustes e fabricação de componentes com foco em precisão dimensional, encaixe e confiabilidade.</p><span class="tag">Ajustes · Componentes</span></article>
+          <article class="service-card"><span class="service-icon">S01</span><h3>Texturização química</h3><p>Desenvolvimento e aplicação de acabamento superficial conforme amostra, padrão ou especificação do projeto.</p><span class="tag">Textura · Aparência · Função</span></article>
+          <article class="service-card"><span class="service-icon">L01</span><h3>Gravação e solda laser</h3><p>Gravações técnicas, logotipos, identificações e intervenções localizadas com precisão e baixo impacto térmico.</p><span class="tag">Laser · Reparos · Identificação</span></article>
+          <article class="service-card"><span class="service-icon">S02</span><h3>Polimento e tratamentos superficiais</h3><p>Do acabamento técnico à recuperação de superfícies, com processos adequados à função e ao padrão visual da peça.</p><span class="tag">Polimento · Acabamento</span></article>
         </div>
       </div>
     </section>
 
-    <section id="empresa">
-      <div class="container about-grid">
-        <div class="about-card">
-          <span class="eyebrow">Brasil Tools</span>
-          <h2>Conhecimento técnico aplicado ao chão de fábrica.</h2>
-          <p>Atuamos em manutenção, otimização e tratamento de moldes para transformação de plásticos, combinando experiência prática, engenharia e parceiros tecnológicos para atender demandas locais e projetos de maior complexidade.</p>
-          <div class="mini-list">
-            <div><span class="check">✓</span><span>Atendimento técnico orientado a diagnóstico e solução.</span></div>
-            <div><span class="check">✓</span><span>Serviços para manutenção, modificação e melhoria de moldes.</span></div>
-            <div><span class="check">✓</span><span>Foco em prazo, confiabilidade e continuidade de produção.</span></div>
+    <section class="surface-section" id="superficies">
+      <div class="container surface-layout">
+        <div class="surface-copy">
+          <span class="eyebrow">Engenharia de superfícies</span>
+          <h2>A textura não é apenas estética. Ela faz parte do desempenho do produto.</h2>
+          <p>O acabamento do molde influencia percepção visual, toque, brilho, ocultação de marcas de processo e identidade do produto. A Brasil Tools combina análise do ferramental com processos químicos, laser e polimento para definir a solução adequada.</p>
+          <div class="surface-list">
+            <div><span class="check">✓</span><span>Padrões desenvolvidos a partir de amostra, referência ou especificação técnica.</span></div>
+            <div><span class="check">✓</span><span>Reparo e recuperação de áreas com textura danificada ou desgastada.</span></div>
+            <div><span class="check">✓</span><span>Gravações técnicas, marcas, identificadores e detalhes funcionais.</span></div>
+            <div><span class="check">✓</span><span>Compatibilização do acabamento com geometria, material e condição do molde.</span></div>
           </div>
+          <div class="actions"><a class="btn btn-secondary" href="#contato">Consultar um acabamento</a></div>
         </div>
-        <div class="stats-card">
-          <div class="stat"><strong>110</strong><span>clientes satisfeitos</span></div>
-          <div class="stat"><strong>+50</strong><span>projetos concluídos</span></div>
-          <div class="stat wide"><strong>214</strong><span>manutenções realizadas</span></div>
+
+        <div class="pattern-grid" aria-label="Exemplos conceituais de famílias de textura">
+          <div class="pattern-card p-leather"><div class="caption"><small>Família de textura</small><strong>Couro / Grain</strong></div></div>
+          <div class="pattern-card p-geo"><div class="caption"><small>Família de textura</small><strong>Geométrica</strong></div></div>
+          <div class="pattern-card p-satin"><div class="caption"><small>Família de textura</small><strong>Satin / Linear</strong></div></div>
+          <div class="pattern-card p-organic"><div class="caption"><small>Família de textura</small><strong>Orgânica</strong></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Por que Brasil Tools</span>
+            <h2>O foco é devolver o molde em condição de produzir — e manter produzindo.</h2>
+          </div>
+          <p>Uma abordagem orientada por diagnóstico, execução técnica e validação, com comunicação direta durante todo o serviço.</p>
+        </div>
+
+        <div class="advantages">
+          <article class="adv-card"><span class="num">01 / INTEGRAÇÃO</span><h3>Várias competências em um só fluxo</h3><p>Manutenção, usinagem e acabamento conectados para reduzir repasses entre fornecedores.</p></article>
+          <article class="adv-card"><span class="num">02 / AGILIDADE</span><h3>Decisão técnica mais rápida</h3><p>O diagnóstico direciona o processo certo antes da execução, evitando intervenções desnecessárias.</p></article>
+          <article class="adv-card"><span class="num">03 / FLEXIBILIDADE</span><h3>Atendimento conforme a necessidade do molde</h3><p>Serviços em ferramentaria e, quando aplicável ao processo, intervenções técnicas no cliente.</p></article>
+          <article class="adv-card"><span class="num">04 / RESULTADO</span><h3>Acabamento conectado à produção</h3><p>Superfície, funcionalidade e condição de processo avaliadas como partes do mesmo problema.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="segmentos">
+      <div class="container industry-wrap">
+        <div class="industry-copy">
+          <span class="eyebrow">Segmentos</span>
+          <h2>Experiência voltada a produtos plásticos de alta exigência.</h2>
+          <p>Atendemos ferramentarias, transformadores, sistemistas e indústrias que dependem de moldes estáveis e superfícies consistentes ao longo da produção.</p>
+          <div class="actions"><a class="btn btn-secondary" href="mailto:marcelo@brasiltools.com">Falar com a equipe técnica</a></div>
+        </div>
+        <div class="industry-grid">
+          <div class="industry"><small>Segmento</small><strong>Automotivo & Autopeças</strong></div>
+          <div class="industry"><small>Segmento</small><strong>Linha branca & Eletrodomésticos</strong></div>
+          <div class="industry"><small>Segmento</small><strong>Embalagens & Cosméticos</strong></div>
+          <div class="industry"><small>Segmento</small><strong>Utilidades & Bens de consumo</strong></div>
+          <div class="industry"><small>Segmento</small><strong>Logística & Paletes plásticos</strong></div>
+          <div class="industry"><small>Segmento</small><strong>Aplicações técnicas especiais</strong></div>
         </div>
       </div>
     </section>
@@ -495,15 +776,22 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Como atuamos</span>
-            <h2>Um fluxo simples para problemas complexos.</h2>
+            <span class="eyebrow">Fluxo técnico</span>
+            <h2>Do problema na produção à liberação do molde.</h2>
           </div>
         </div>
         <div class="process">
-          <div class="step"><b>ETAPA 01</b><h3>Diagnóstico</h3><p>Entendimento do problema, condição do molde, impacto na produção e urgência.</p></div>
-          <div class="step"><b>ETAPA 02</b><h3>Plano técnico</h3><p>Definição do escopo, processo recomendado, prazo e critérios de aceitação.</p></div>
-          <div class="step"><b>ETAPA 03</b><h3>Execução</h3><p>Aplicação dos serviços com controle técnico e rastreabilidade das intervenções.</p></div>
-          <div class="step"><b>ETAPA 04</b><h3>Validação</h3><p>Revisão final do serviço e liberação para retorno seguro à operação.</p></div>
+          <div class="process-step"><b>ETAPA 01</b><h3>Diagnóstico</h3><p>Recebemos fotos, desenho, histórico e sintomas para entender condição, urgência e impacto produtivo.</p></div>
+          <div class="process-step"><b>ETAPA 02</b><h3>Plano de intervenção</h3><p>Definimos processo, escopo, sequência de trabalho e critérios técnicos de aceitação.</p></div>
+          <div class="process-step"><b>ETAPA 03</b><h3>Execução controlada</h3><p>Realizamos a intervenção com foco em preservar geometria, função e requisitos de acabamento.</p></div>
+          <div class="process-step"><b>ETAPA 04</b><h3>Validação e retorno</h3><p>Revisamos o serviço e preparamos o ferramental para retornar ao processo produtivo com segurança.</p></div>
+        </div>
+
+        <div class="numbers">
+          <div class="number-card"><strong>2015</strong><span>início das atividades da Brasil Tools</span></div>
+          <div class="number-card"><strong>110</strong><span>clientes satisfeitos</span></div>
+          <div class="number-card"><strong>+50</strong><span>projetos concluídos</span></div>
+          <div class="number-card"><strong>214</strong><span>manutenções realizadas</span></div>
         </div>
       </div>
     </section>
@@ -511,18 +799,18 @@
     <section id="contato">
       <div class="container contact-wrap">
         <div>
-          <span class="eyebrow">Contato</span>
-          <h2>Tem um molde parado ou um novo projeto?</h2>
-          <p>Envie sua necessidade para a Brasil Tools. Quanto mais informações sobre o molde, peça e condição atual, mais rápido conseguimos direcionar a avaliação técnica.</p>
+          <span class="eyebrow">Solicite uma avaliação</span>
+          <h2>Envie o molde, o problema e o resultado que você precisa.</h2>
+          <p>Fotos, desenho, material da peça, acabamento desejado e prazo ajudam nossa equipe a direcionar rapidamente a solução técnica.</p>
           <div class="actions">
-            <a class="btn btn-primary" href="https://wa.me/5511981362197?text=Olá%20Brasil%20Tools,%20gostaria%20de%20falar%20sobre%20um%20molde/projeto." target="_blank" rel="noopener">Falar pelo WhatsApp →</a>
-            <a class="btn btn-secondary" href="mailto:marcelo@brasiltools.com">Enviar e-mail</a>
+            <a class="btn btn-primary" href="https://wa.me/5511981362197?text=Olá%20Brasil%20Tools.%20Quero%20solicitar%20uma%20avaliação%20técnica.%20Vou%20enviar%20fotos%20e%20informações%20do%20molde." target="_blank" rel="noopener">Solicitar avaliação no WhatsApp →</a>
+            <a class="btn btn-secondary" href="mailto:marcelo@brasiltools.com?subject=Solicitação%20de%20avaliação%20técnica">Enviar e-mail</a>
           </div>
         </div>
         <div class="contact-card">
           <div class="contact-line"><small>WhatsApp</small><strong>(11) 9 8136-2197</strong></div>
           <div class="contact-line"><small>E-mail</small><strong>marcelo@brasiltools.com</strong></div>
-          <div class="contact-line"><small>Localização</small><strong>Itupeva • São Paulo • Brasil</strong></div>
+          <div class="contact-line"><small>Base de atendimento</small><strong>Itupeva · São Paulo · Brasil</strong></div>
           <div class="contact-line"><small>Site</small><strong>www.brasiltools.com</strong></div>
         </div>
       </div>
@@ -532,7 +820,7 @@
   <footer>
     <div class="container footer-inner">
       <span>© <span id="year"></span> Brasil Tools. Todos os direitos reservados.</span>
-      <span>Engenharia • Moldes • Ferramentaria • Superfícies</span>
+      <span>Engenharia de moldes · Ferramentaria · Superfícies</span>
     </div>
   </footer>
 
